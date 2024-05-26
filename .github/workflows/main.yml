@@ -33,9 +33,10 @@ jobs:
           source venv/bin/activate
           pytest --html=report.html -p no:warnings
           
-      - name: Upload test report
+      - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: pytest-report
           path: report.html
+
