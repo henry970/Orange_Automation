@@ -8,7 +8,8 @@ We used Python with Selenium and Pytest for test execution and HTML to generate 
 2. Add yml file for GitHub action(whenever you push your automation from your local system it will trigger the GitHub action, when the test fails it means something is wrong. then you have to debug your code)
 
 
-   ** STEP TO SETUP A GITHUB ACTION**
+         ---------------------------STEP TO SETUP A GITHUB ACTION-------------------------------------------
+   
 
    Setting up GitHub Actions involves creating workflows that automate various tasks in your repository. Here’s a step-by-step guide to get you started:
 
