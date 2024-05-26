@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 from Orange_automation_test.Admin_page.admin_page import AdminPage
+from Orange_automation_test.Leave_page.Leave_page_test import LeavePage
 from Orange_automation_test.Orange_actionPage.ActionPage import LoginPage
 from Orange_automation_test.PIM_page.PIM_page_test import PIMPage
 
@@ -22,6 +23,7 @@ def driver_setup():
     driver.implicitly_wait(20)
     yield driver
     driver.quit()
+
 
 #
 # @pytest.fixture(scope="module")
@@ -57,3 +59,9 @@ def test_admin_page_on_orange_website(login):
 def test_Pim_page_on_orange_website(login):
     test_Pim_page = PIMPage(login.driver)
     test_Pim_page.click_pim_button()
+
+
+# Leave button
+def test_leave_page_on_orange_website(login):
+    test_leave_page = LeavePage(login.driver)
+    test_leave_page.click_leave_button()
