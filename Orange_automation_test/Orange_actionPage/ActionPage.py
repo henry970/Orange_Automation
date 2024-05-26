@@ -1,4 +1,3 @@
-import logging
 import time
 
 import pytest
@@ -31,4 +30,4 @@ class LoginPage:
         login_button = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(ActionPageLocators.LOGIN_BUTTON))
         login_button.click()
-        time.sleep(20)
+        time.sleep(5)
