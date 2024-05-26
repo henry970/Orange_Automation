@@ -31,7 +31,7 @@ jobs:
       - name: Run tests
         run: |
           source venv/bin/activate
-          Orange_automation_test/pytest test_Orange.py --html=report.html -p no:warnings
+          pytest --html=report.html -p no:warnings
           
       - name: Upload test report
         if: always()
