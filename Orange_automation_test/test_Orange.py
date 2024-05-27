@@ -65,3 +65,5 @@ def test_Pim_page_on_orange_website(login):
 def test_leave_page_on_orange_website(login):
     test_leave_page = LeavePage(login.driver)
     test_leave_page.click_leave_button()
+
+# test
