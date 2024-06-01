@@ -10,29 +10,30 @@ from Orange_automation_test.Orange_actionPage.ActionPage import LoginPage
 from Orange_automation_test.PIM_page.PIM_page_test import PIMPage
 from Orange_automation_test.Time_page.Time_page_test import TimePage
 
-#
-# @pytest.fixture(scope="module")
-# def driver_setup():
-#     chrome_options = Options()
-#     chrome_options.add_argument("--headless")
-#     chrome_options.add_argument("--no-sandbox")
-#     chrome_options.add_argument("--disable-dev-shm-usage")
-#     chrome_options.add_argument("--disable-gpu")
-#     chrome_options.add_argument("--window-size=1920x1080")
-#
-#     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-#     driver.implicitly_wait(20)
-#     yield driver
-#     driver.quit()
 
-
+#
 @pytest.fixture(scope="module")
 def driver_setup():
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920x1080")
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     driver.implicitly_wait(20)
-    driver.maximize_window()
     yield driver
     driver.quit()
+
+
+# @pytest.fixture(scope="module")
+# def driver_setup():
+#     driver = webdriver.Chrome()
+#     driver.implicitly_wait(20)
+#     driver.maximize_window()
+#     yield driver
+#     driver.quit()
 
 
 @pytest.fixture(scope="module")
