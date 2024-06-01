@@ -6,7 +6,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from Orange_automation_test.AdminLocators.Admin_page_locators import AdminPageLocators
 from Orange_automation_test.TimeLocators.Time_page_locators import TimePageLocators
 
 

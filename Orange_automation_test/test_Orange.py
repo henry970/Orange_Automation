@@ -10,29 +10,29 @@ from Orange_automation_test.Orange_actionPage.ActionPage import LoginPage
 from Orange_automation_test.PIM_page.PIM_page_test import PIMPage
 from Orange_automation_test.Time_page.Time_page_test import TimePage
 
-
-@pytest.fixture(scope="module")
-def driver_setup():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920x1080")
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-    driver.implicitly_wait(20)
-    yield driver
-    driver.quit()
-
 #
 # @pytest.fixture(scope="module")
 # def driver_setup():
-#     driver = webdriver.Chrome()
+#     chrome_options = Options()
+#     chrome_options.add_argument("--headless")
+#     chrome_options.add_argument("--no-sandbox")
+#     chrome_options.add_argument("--disable-dev-shm-usage")
+#     chrome_options.add_argument("--disable-gpu")
+#     chrome_options.add_argument("--window-size=1920x1080")
+#
+#     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 #     driver.implicitly_wait(20)
-#     driver.maximize_window()
 #     yield driver
 #     driver.quit()
+
+
+@pytest.fixture(scope="module")
+def driver_setup():
+    driver = webdriver.Chrome()
+    driver.implicitly_wait(20)
+    driver.maximize_window()
+    yield driver
+    driver.quit()
 
 
 @pytest.fixture(scope="module")
@@ -49,25 +49,27 @@ def test_login_page_on_orange_website(login):
     login.click_login_button()
 
 
-# Admin page test
+# Admin page test---------------------------
 def test_admin_page_on_orange_website(login):
     test_Admin_page = AdminPage(login.driver)
     test_Admin_page.click_admin_button()
 
 
-# Admin page test
+# Admin page test---------------------------
 def test_Pim_page_on_orange_website(login):
     test_Pim_page = PIMPage(login.driver)
     test_Pim_page.click_pim_button()
 
 
-# Leave button
+# Leave button-----------------------------
 def test_leave_page_on_orange_website(login):
     test_leave_page = LeavePage(login.driver)
     test_leave_page.click_leave_button()
 
 
-# Time button
+# Time button-------------------------------
 def test_time_page_on_orange_website(login):
     test_leave_page = TimePage(login.driver)
     test_leave_page.click_time_button()
+
+# test
