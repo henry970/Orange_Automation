@@ -1,10 +1,11 @@
+import logging
 import time
+from datetime import datetime
 
-import pytest
-from selenium.common import WebDriverException, TimeoutException, ElementClickInterceptedException
-from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 from Orange_automation_test.AdminLocators.Admin_page_locators import AdminPageLocators
 
@@ -15,8 +16,6 @@ class AdminPage:
 
     def click_admin_button(self):
         Click_admin_button = WebDriverWait(self.driver, 20).until(
-             EC.element_to_be_clickable(AdminPageLocators.CLICK_ADMIN_BUTTON))
+            EC.element_to_be_clickable(AdminPageLocators.CLICK_ADMIN_BUTTON))
         Click_admin_button.click()
         time.sleep(5)
-
-
